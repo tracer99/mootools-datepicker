@@ -20,7 +20,7 @@ provides:
 
 /**
  * datepicker.js - MooTools Datepicker class
- * @version 1.16
+ * @version 1.16.1
  * 
  * by MonkeyPhysics.com
  *
@@ -683,7 +683,8 @@ var DatePicker = new Class({
 				case 'M': r = '[A-Za-z]{'+this.options.monthShort+'}'; break;
 				case 'F': r = '[A-Za-z]+'; break;
 				case 'd': r = '0[1-9]|[12][0-9]|3[01]'; break;
-				case 'j': r = '[1-9]|[12][0-9]|3[01]'; break;
+				case 'j': r = '[12][0-9]|3[01]|[1-9]'; break;
+//				case 'j': r = '[1-9]|[12][0-9]|3[01]'; break;
 				case 'D': r = '[A-Za-z]{'+this.options.dayShort+'}'; break;
 				case 'l': r = '[A-Za-z]+'; break;
 				case 'G': 
