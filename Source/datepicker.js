@@ -191,7 +191,7 @@ var DatePicker = new Class({
 		// attach functionality to the inputs
 		elems.each(function(item, index){
 			// never double attach
-			if (item.retrieve('datepicker')) return;
+			if (item.retrieve('datepicker')) return null;
 
 			item.store('datepicker', true); // to prevent double attachment...
 
@@ -236,11 +236,11 @@ var DatePicker = new Class({
 
 		elems.each(function(item){
 			// Only when the datepicker is attached
-			if (!item.retrieve('datepicker')) return;
+			if (!item.retrieve('datepicker')) return null;
 			item.store('datepicker', false);
 
-			var toggler = item.retrieve('datepicker:toggler');
-			var events = item.retrieve('datepicker:events');
+			var toggler = item.retrieve('datepicker:toggler'),
+				events = item.retrieve('datepicker:events');
 			// Detach the Events
 			(toggler || item).removeEvents(events);
 		});
@@ -252,7 +252,7 @@ var DatePicker = new Class({
 		input = document.id(input);
 
 		// Cannot show the picker if its not attached
-		if (!input.retrieve('datepicker')) return;
+		if (!input.retrieve('datepicker')) return null;
 
 		// Determine the date that should be opened
 		if (timestamp){
@@ -326,7 +326,7 @@ var DatePicker = new Class({
 		frame.style.filter = 'progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=0)';
 
 		this.addEvent('close', function(){
-			if (frame && frame.destroy) frame.destroy()
+			if (frame && frame.destroy) frame.destroy();
 		});
 
 		if (this.dragger){
@@ -724,7 +724,7 @@ var DatePicker = new Class({
 	},
 
 	zoomOut: function(){
-		if (!this.allowZoomOut()) return;
+		if (!this.allowZoomOut()) return null;
 
 		if (this.mode == 'year') this.mode = 'decades';
 		else if (this.mode == 'time') this.mode = 'month';
@@ -806,7 +806,7 @@ Date.extend({
 		d.setDate(1);
 		['year', 'month', 'day', 'hours', 'minutes', 'seconds'].each(function(type){
 			var v = values[type];
-			if (!v && v !== 0) return;
+			if (!v && v !== 0) return null;
 			switch (type){
 				case 'day': d.setDate(v); break;
 				case 'month': d.setMonth(v); break;
