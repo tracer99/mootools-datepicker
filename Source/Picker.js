@@ -286,8 +286,8 @@ var Picker = new Class({
 			this.fx(fx);
 		} else {
 			this.slider.setStyle('left', 0);
-			this.oldContents.setStyles({left: 0, opacity: 0});
-			this.newContents.setStyles({left: 0, opacity: 1});
+			this.oldContents.setStyles({left: 0, opacity: 0, visibility: 'hidden'});
+			this.newContents.setStyles({left: 0, opacity: 1, visibility: 'visible'});
 		}
 		return this;
 	},
@@ -297,6 +297,10 @@ var Picker = new Class({
 			newContents = this.newContents,
 			slider = this.slider,
 			bodysize = this.bodysize;
+		if (fx == 'right' || fx == 'left'){
+			oldContents.setStyle('visibility', 'visible');
+			newContents.setStyle('visibility', 'visible');
+		}
 		if (fx == 'right'){
 			oldContents.setStyles({left: 0, opacity: 1});
 			newContents.setStyles({left: bodysize.x, opacity: 1});
@@ -307,12 +311,14 @@ var Picker = new Class({
 			slider.setStyle('left', -bodysize.x).tween('left', -bodysize.x, 0);
 		} else if (fx == 'fade'){
 			slider.setStyle('left', 0);
-			oldContents.setStyle('left', 0).set('tween', {
+			oldContents.setStyles({left:  0, visibility: 'visible'}).set('tween', {
 				duration: this.options.animationDuration / 2
 			}).tween('opacity', 1, 0).get('tween').chain(function(){
 				oldContents.setStyle('left', bodysize.x);
+				oldContents.setStyle('visibility', 'hidden');
+				this.callChain();
 			});
-			newContents.setStyles({opacity: 0, left: 0}).set('tween', {
+			newContents.setStyles({opacity: 0, left: 0, visibility: 'visible'}).set('tween', {
 				duration: this.options.animationDuration
 			}).tween('opacity', 0, 1);
 		}
