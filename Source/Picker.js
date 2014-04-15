@@ -8,7 +8,9 @@ provides: Picker
 ...
 */
 
-
+steal(
+	'mootools',
+	function() {
 var Picker = new Class({
 
 	Implements: [Options, Events],
@@ -341,4 +343,7 @@ var Picker = new Class({
 		return this;
 	}
 
+});
+
+return Picker;
 });

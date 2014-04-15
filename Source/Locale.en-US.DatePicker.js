@@ -8,7 +8,9 @@ provides: Locale.en-US.DatePicker
 ...
 */
 
-
+steal(
+	'mootools-more',
+	function(){
 Locale.define('en-US', 'DatePicker', {
 	select_a_time: 'Select a time',
 	use_mouse_wheel: 'Use the mouse wheel to quickly change value',
@@ -16,4 +18,5 @@ Locale.define('en-US', 'DatePicker', {
 	apply_range: 'Apply',
 	cancel: 'Cancel',
 	week: 'Wk'
+});
 });

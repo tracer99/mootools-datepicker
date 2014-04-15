@@ -8,7 +8,9 @@ provides: Picker.Attach
 ...
 */
 
-
+steal( 
+	'mootools-datepicker/Source/Picker.js',
+	function(Picker) {
 Picker.Attach = new Class({
 
 	Extends: Picker,
@@ -158,4 +160,6 @@ Picker.Attach = new Class({
 		return this.parent();
 	}
 
+});
+return Picker;
 });
