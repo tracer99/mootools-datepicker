@@ -9,7 +9,7 @@ provides: Picker
 */
 
 steal(
-	'mootools',
+//	'mootools',
 	function() {
 var Picker = new Class({
 

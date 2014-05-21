@@ -9,7 +9,7 @@ provides: Locale.en-US.DatePicker
 */
 
 steal(
-	'mootools-more',
+//	'mootools-more',
 	function(){
 Locale.define('en-US', 'DatePicker', {
 	select_a_time: 'Select a time',

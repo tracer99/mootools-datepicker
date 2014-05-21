@@ -12,7 +12,7 @@ provides: Picker.Date
 steal(
 	'mootools-datepicker/Source/Picker.Attach.js',
 	'mootools-datepicker/Source/Locale.en-US.DatePicker.js',
-	'mootools-more',
+//	'mootools-more',
 	function(Picker) {
 	
 this.DatePicker = Picker.Date = new Class({
