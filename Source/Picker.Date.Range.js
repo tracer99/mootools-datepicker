@@ -8,10 +8,6 @@ provides: Picker.Date.Range
 ...
 */
 
-steal(
-	'mootools-datepicker/Source/Picker.Date.js',
-	function(Picker) {
-
 Picker.Date.Range = new Class({
 
 	Extends: Picker.Date,
@@ -133,6 +129,4 @@ Picker.Date.Range = new Class({
 		return this;
 	}
 
-});
-return Picker;
 });

@@ -9,12 +9,6 @@ provides: Picker.Date
 */
 
 
-steal(
-	'mootools-datepicker/Source/Picker.Attach.js',
-	'mootools-datepicker/Source/Locale.en-US.DatePicker.js',
-//	'mootools-more',
-	function(Picker) {
-	
 this.DatePicker = Picker.Date = new Class({
 
 	Extends: Picker.Attach,
@@ -683,5 +677,3 @@ var isUnavailable = function(type, date, options){
 
 	return dateAllow;
 };
-return Picker;
-});
